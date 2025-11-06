@@ -1,0 +1,21 @@
+
+let precoProduto;
+//É uma possibilidade, apesar de perder o foco do typescript (fortemente tipado)
+
+precoProduto = true;
+
+precoProduto = 25.90;
+
+precoProduto = "Sujeito Programador"
+
+let nota1: any;
+let nota2: any;
+
+nota1 = 10;
+nota2 = 20;
+
+nota1 = "15";
+
+console.log(precoProduto);
+
+console.log(nota1 + nota2);
