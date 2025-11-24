@@ -48,4 +48,4 @@ const left4DeadDLC: DLC = {
   jogoOriginal: left4dead
 }
 
-console.log(left4DeadDLC);
+console.log(left4DeadDLC)
