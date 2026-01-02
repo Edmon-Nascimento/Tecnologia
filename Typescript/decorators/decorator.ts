@@ -26,3 +26,24 @@
   class Sistema{
 
   }
+
+/// ============ PRATICANDO ============
+
+
+  function setIpServidor(novoIp: string){
+    return (target: any) => { // target é o construtor da nossa classe.
+      return class extends target{
+        ip = novoIp;
+      }
+    }
+  }
+
+  @setIpServidor("192.168.50.900")
+  class Servidor{
+
+  }
+
+
+  const servidor1 = new Servidor();
+
+  console.log(servidor1);
