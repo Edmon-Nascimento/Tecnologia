@@ -1,0 +1,83 @@
+main{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+    border-radius: 10px;
+    color: white;
+    width: 100vw;
+    max-width: 600px;
+
+}
+
+img{
+    margin-bottom: 20px;
+}
+
+form{
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+
+#alcool, #gasolina{
+    width: 100%;
+    padding: 10px;
+    height: 30px;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    margin-top: 3px;
+}
+
+.calcular{
+    background-color: #119cea;
+    font-weight: bold;
+    color: white;
+    font-size: 1em;
+    display: flex;  
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+.calcular:hover{
+    background-color: #119bead8;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 182, 62, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 12px rgba(0, 182, 62, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 182, 62, 0);
+    }
+}
+
+
+
+.resultado{
+    background-color: #00b63e;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    animation: pulse 1.5s infinite;
+}
+
+
+
