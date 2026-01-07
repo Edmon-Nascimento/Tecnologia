@@ -9,29 +9,36 @@ function App() {
     enabled: false,
     task: ''
   })
+  const [completed, setCompleted] = useState<string[]>([])
 
-  function handleRegister(){
-    if(!input){
+  function handleRegister() {
+    if (!input) {
       alert("Digite uma tarefa")
       return
     }
 
-    setTasks(tasks => [...tasks, input])
-    setInput("")
-
-    if(editTask.enabled){
+    if (editTask.enabled) {
       handleSaveEdit()
       return
     }
 
+    //Adicionar nova tarefa ao array de tarefas
+    setTasks(prev => [...prev, input])
+
+    //Limpar o campo do input
+    setInput("")
   }
 
-  function handleDelete(item:string){
-    const removeTask = tasks.filter(task => task !==item)
-    setTasks(removeTask)
+  function handleDelete(item: string) {
+
+    //Filtrar o array de tarefas e retorna sem o item desejado
+    setTasks( prev => prev.filter(task => task !== item))
+
+    //Mesma lógica para marcar como concluído
+    setCompleted(prev => prev.filter(task => task !== item))
   }
 
-  function handleEdit(item:string){
+  function handleEdit(item: string) {
     setInput(item)
     setEditTask({
       enabled: true,
@@ -39,43 +46,71 @@ function App() {
     })
   }
 
-  function handleSaveEdit(){
+  function handleSaveEdit() {
+    //Encontrar o index da tarefa que está sendo editada no array de tarefas 
     const findIndexTask = tasks.findIndex(task => task === editTask.task)
+
+    //Cria um novo array de tarefas
     const allTasks = [...tasks]
 
+    //Altera o valor da posição editada pelo novo valor digitado
     allTasks[findIndexTask] = input
+
+    //Atribui ao array de tarefas original o array com o valor editado
     setTasks(allTasks)
 
+
+    if (completed.includes(editTask.task)) {
+      setCompleted(prev =>
+        prev.map(task => task === editTask.task ? input : task)
+      )
+    }
+
+    //Desabilita a edição
     setEditTask({
       enabled: false,
       task: ''
     })
+
     setInput("")
+  }
+
+  function handleConcluir(item: string) {
+    setCompleted(prev =>
+      prev.includes(item)
+      //Se a tarefa já estiver concluída, desmarca
+        ? prev.filter(task => task !== item)
+
+      //Se estiver concluída, marca
+        : [...prev, item]
+    )
   }
 
   return (
     <main>
       <h1>Lista de Tarefas</h1>
-    
 
       <div className="task-input">
         <input
           type="text"
-          name=""
-          id=""
-          placeholder='Digite uma tarefa'
+          placeholder="Digite uma tarefa"
           value={input}
-          onChange={(e)=> setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
         />
-        <button onClick={handleRegister}>{editTask.enabled ? "Atualizar tarefa" : "Adicionar tarefa"}</button>
+        <button onClick={handleRegister}>
+          {editTask.enabled ? "Atualizar tarefa" : "Adicionar tarefa"}
+        </button>
       </div>
 
-      {tasks.map((item)=>(
-        <section className='task-render' key={item}>
-          <span>{item}</span>
-          <button onClick={()=>handleEdit(item)}>Editar</button>
-          <button onClick={()=> handleDelete(item)}>Excluir</button>
+      {tasks.map((item) => (
+        <section className="task-render" key={item}>
+          <span className={completed.includes(item) ? 'done' : ''}>
+            {item}
+          </span>
 
+          <button onClick={() => handleEdit(item)}>Editar</button>
+          <button onClick={() => handleConcluir(item)}>Concluir</button>
+          <button onClick={() => handleDelete(item)}>Excluir</button>
         </section>
       ))}
     </main>

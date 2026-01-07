@@ -87,6 +87,10 @@ h1{
   font-size:1rem;
   word-break:break-word;
 }
+.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
 
 .task-render button{
   padding:8px 10px;
