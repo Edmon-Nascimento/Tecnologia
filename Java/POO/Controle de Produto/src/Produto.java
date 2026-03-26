@@ -19,10 +19,12 @@ public class Produto {
 
     public void info(){
         System.out.println("Produto: " + nome);
-        System.out.println("Preço: " + preco);
-        System.out.println("Quantidade: " + quantidade);
+        System.out.println("Preço: R$" + preco);
+        System.out.println("Quantidade: " + quantidade + "unidades");
+        totalValorEstoque();
     }
 
-
-
+    public String toString(){
+        return nome+", R$"+String.format("%.2f", preco)+ ", " +quantidade+ " unidades, Total: R$" + String.format("%.2f",totalValorEstoque());
+    }
 }

@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Controle de Produto/Controle de Produto.iml" filepath="$PROJECT_DIR$/Controle de Produto/Controle de Produto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POO/Controle de Produto/Controle de Produto.iml" filepath="$PROJECT_DIR$/POO/Controle de Produto/Controle de Produto.iml" />
       <module fileurl="file://$PROJECT_DIR$/POO/POO.iml" filepath="$PROJECT_DIR$/POO/POO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POO/Retangulo/Retangulo.iml" filepath="$PROJECT_DIR$/POO/Retangulo/Retangulo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tecnologia.iml" filepath="$PROJECT_DIR$/Tecnologia.iml" />
     </modules>
   </component>
